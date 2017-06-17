@@ -1,13 +1,15 @@
+'use strict'
+
 let exec = require('child_process').exec;
 import tmp from 'tmp'
 import _ from 'lodash'
  
 module.exports = function(src, options = {}) {
-  let default = {
+  let defaults = {
     nPoints: 300,
   }
   
-  options = _.extend({}, default, options)
+  options = _.extend({}, defaults, options)
 
   let tmpobj = tmp.fileSync({postfix: '.json'})
   let cmd = `audiowaveform -i "${src}" -b 8 -o "${tmpobj.name}"`

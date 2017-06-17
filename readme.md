@@ -7,7 +7,7 @@ By default, wavesurfer must use XHR to download an audio fully before it can dra
 For a more practical example that uses this package, see [gulp-wavesurfer-peakbuilder](https://github.com/benallfree/gulp-wavesurfer-peakbuilder).
 
 ```
-npm install wavesurfer-peakbuilder --save-dev
+yarn add wavesurfer-peakbuilder --dev
 ```
 
 ## Usage

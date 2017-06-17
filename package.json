@@ -2,14 +2,21 @@
   "name": "wavesurfer-peakbuilder",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile": "babel -d lib/ src/",
+    "prepublish": "npm run compile",
+    "watch": "watch 'yarn compile' ./src"
   },
-  "author": "",
+  "author": "Ben Allfree",
+  "homepage": "https://github.com/benallfree/wavesurfer-peakbuilder",
   "license": "ISC",
   "dependencies": {
     "lodash": "^4.17.4",
     "tmp": "^0.0.31"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "watch": "^1.0.2"
   }
 }
