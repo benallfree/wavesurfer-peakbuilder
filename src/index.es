@@ -3,12 +3,12 @@
 let exec = require('child_process').exec;
 import tmp from 'tmp'
 import _ from 'lodash'
- 
+
 module.exports = function(src, options = {}) {
   let defaults = {
     nPoints: 300,
   }
-  
+
   options = _.extend({}, defaults, options)
 
   let tmpobj = tmp.fileSync({postfix: '.json'})
@@ -23,16 +23,16 @@ module.exports = function(src, options = {}) {
       {
         peaks.push(((Math.abs(samples[i])+samples[i+1])/256));
       }
-      var final = [], size = peaks.length/300;
+      var final = [], size = peaks.length/options.nPoints;
       while(peaks.length>0)
       {
         var t = peaks.splice(0,size).reduce((a,v) => { return a+v; });
         final.push((t/size).toFixed(4)*1);
       }
       resolve(final);
-    });    
+    });
   })
-  
+
 
   return p;
 }
